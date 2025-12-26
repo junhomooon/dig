@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIG.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">DIG.</div>
+    <div class="right">
+      <button id="searchToggle" type="button">SEARCH</button>
+      <input id="searchInput" type="text" placeholder="Search" autocomplete="off" />
+    </div>
+  </header>
+
+  <div id="viewport">
+    <div id="world"></div>
+  </div>
+
+  <aside id="panel">
+    <button id="panel-close" type="button" aria-label="Close"></button>
+
+    <img id="panel-image" alt="" />
+
+    <h2 id="panel-title"></h2>
+    <div id="panel-content"></div>
+
+    <a id="panel-link" href="#" target="_blank" rel="noopener noreferrer">
+      SEARCH ON GOOGLE
+    </a>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>

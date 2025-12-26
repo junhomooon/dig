@@ -1,0 +1,250 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Archivo", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ff7e30;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* =========================
+   헤더
+========================= */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding: 24px 32px 18px;
+  pointer-events: none;
+}
+
+.logo {
+  font-size: clamp(48px, 12vw, 128px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+
+  background: #fff;
+  color: #000;
+  padding: 6px 14px;
+
+  pointer-events: auto;
+}
+
+.topbar .right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: auto;
+}
+
+#searchToggle {
+  background: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+
+  padding: 8px 12px;
+}
+
+#searchInput {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: min(280px, 70vw);
+
+  background: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+
+  padding: 8px 12px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.topbar.search-open #searchInput {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.topbar.search-open #searchToggle {
+  visibility: hidden;
+}
+
+/* =========================
+   VIEWPORT / WORLD
+========================= */
+#viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+#world {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+/* =========================
+   키워드 폰트; 등등
+========================= */
+.node {
+  position: absolute;
+  font-size: clamp(14px, 2.6vw, 16px);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  padding: 4px 6px;
+  color: #fff;
+  opacity: 0.85;
+}
+
+.node:hover {
+  background: #fff;
+  color: #000;
+  opacity: 1;
+}
+
+/* =========================
+   패널 ; 등등
+========================= */
+#panel {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+
+  width: 420px;
+  max-width: calc(100vw - 64px);
+  max-height: 70vh;
+
+  overflow: auto;
+  background: #fff;
+  color: #000;
+
+  padding: 52px 18px 18px;
+  display: none;
+  z-index: 200;
+}
+
+/* MOBILE: center aligned */
+@media (max-width: 768px) {
+  #panel {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+
+    transform: translateX(-50%);
+    width: calc(100vw - 32px);
+  }
+}
+
+/* =========================
+   패널 x 표식 등등;
+========================= */
+#panel-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 34px;
+  height: 34px;
+
+  background: #000;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#panel-close::before,
+#panel-close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 3px;
+  background: #fff;
+
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+#panel-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#panel-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+#panel-image {
+  width: 100%;
+  max-height: 240px;
+
+  object-fit: contain;
+  background: #000;
+
+  margin-bottom: 12px;
+  padding: 12px;
+  display: none;
+}
+
+#panel-title {
+  font-size: clamp(18px, 4vw, 22px);
+  font-weight: 800;
+  margin: 0 0 12px 0;
+}
+
+#panel-content {
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+#panel-content p {
+  margin: 0 0 14px 0;
+}
+
+#panel-link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 14px;
+
+  background: #000;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+#panel-link:hover {
+  background: #111;
+}
